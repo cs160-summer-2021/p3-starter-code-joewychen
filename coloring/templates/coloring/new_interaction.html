@@ -69,17 +69,32 @@
 		}
 
 		.menu {
-			width: 100px;
-			height: 50px;
+			width: 370px;
+			height: 90px;
 			background-color: burlywood;
 			display: block;
 			border-radius: 30px;
+			font-size: 30px;
 			
 		}
 		.eraser {
 			width: 35px;
 			height: 35px;
 			margin-right: 15px;
+		}
+		.design {
+			margin: auto;
+			box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;		}
+		.design-choice {
+			padding: 20px;
+			margin: 10px;
+			width: 120px;
+			height: 120px;
+			box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+		}
+		.title-text {
+			text-align: center;
+			font-size: 30px;
 		}
 
 		
@@ -203,6 +218,27 @@
 			<button class="menu">Home</button>
 			<button class="menu" id="post">Post</button>
 			<button class="menu">Save</button>
+			<div class="design">
+				<p class="title-text">Blank Drawing Picker</p>
+				<table >
+					<tr>
+						<td>
+							<input type="image" class="design-choice" src="/static/coloring/images/flowers.png">
+						</td>
+						<td>
+							<input type="image" class="design-choice" src="/static/coloring/images/sunflower.png">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="image" class="design-choice" src="/static/coloring/images/sun.png">
+						</td>
+						<td>
+							<input type="image" class="design-choice" src="/static/coloring/images/trees.png">
+						</td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<canvas id="myCanvas" ></canvas>
 		<div>
