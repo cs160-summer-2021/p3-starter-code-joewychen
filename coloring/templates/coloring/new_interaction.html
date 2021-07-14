@@ -75,6 +75,10 @@
 			border-radius: 30px;
 			
 		}
+		.eraser {
+			width: 35px;
+			height: 35px;
+		}
 
 		
 	</style>
@@ -183,6 +187,10 @@
 				var c = $("#color-picker").val();			   
 				addColor(c);
 			})
+
+			$(".eraser").click(function(){
+				cp.history.push("#ffffff");
+			})
 		}
 	</script>
 </head>
@@ -195,6 +203,9 @@
 			<button class="menu">Save</button>
 		</div>
 		<canvas id="myCanvas" ></canvas>
+		<div>
+			<input type="image" class="eraser" src="/static/coloring/images/eraser.png">
+		</div>
 		<div>
 			<div id="color-palette"></div>
 			<div id="color-picker-wrapper">
