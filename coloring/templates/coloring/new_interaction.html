@@ -33,6 +33,23 @@
 			margin: 3px;
 		}
 
+
+		.remove-tag {
+			left: 35px;
+			/* top: -20px; */
+			position: relative;
+			width: 10px;
+			height: 15px;
+			/* font-size: 35px; */
+		}
+		.remove-tag::before {
+			content: "x";	
+  			color:black;
+			position: relative;
+			top: -3px;
+    		right: 3px;
+		}
+
 		#myCanvas {
 			padding-left: 0;
 		    padding-right: 0;
@@ -41,6 +58,7 @@
 			/* flex: 5 1 auto; */
 			width: 750px;
 			height: 750px;
+			box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		    /* display: flex; */
 		}
 
@@ -48,6 +66,16 @@
 			width: 30px;
 			height: 30px;
 		}
+
+		.menu {
+			width: 100px;
+			height: 50px;
+			background-color: burlywood;
+			display: block;
+			border-radius: 30px;
+			
+		}
+
 		
 	</style>
 
@@ -86,6 +114,7 @@
 			function createColorPalette(colors){
 
 				// create a swatch for each color
+				save = [];
 				for (var i = colors.length - 1; i >= 0; i--) {
 					var $swatch = $("<div>").css("background-color", colors[i])
 									   .addClass("swatch");
@@ -93,6 +122,9 @@
 						// add color to the color palette history
 					  	cp.history.push($(this).css("background-color"));
 					});
+					var removetag = $("<button></button>").addClass("remove-tag");
+					removetag.click(removeColor($swatch));
+					$swatch.append(removetag);
 					cp.$container.append($swatch);
 				}
 			}
@@ -129,12 +161,21 @@
 			// Set up the mandala interactivity.
 			init(true);
 
+			function removeColor(tag) {
+				return function() {
+					tag.remove();
+				}
+			}
+
 			function addColor(c) {
 				var $swatch = $("<div>").css("background-color", c)
 									   .addClass("swatch");
 				$swatch.click(function(){
 					  	cp.history.push($(this).css("background-color"));
 				});				
+				var removetag = $("<button>").addClass("remove-tag");
+				removetag.click(removeColor($swatch));
+				$swatch.append(removetag);
 				cp.$container.append($swatch);	
 			}
 
@@ -148,6 +189,11 @@
 <body>
 
 	<div class="outBox">
+		<div>
+			<button class="menu">Home</button>
+			<button class="menu" id="post">Post</button>
+			<button class="menu">Save</button>
+		</div>
 		<canvas id="myCanvas" ></canvas>
 		<div>
 			<div id="color-palette"></div>
