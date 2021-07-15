@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  	<title>P3 Coloring</title>
+
+	<script type="text/javascript" src="{% static 'coloring/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'coloring/vendors/paper/paper-full.min.js' %}"></script>
+
+	<style type="text/css">
+	.outer {
+		display: flex;	
+	}
+
+    .padtop {
+        margin: 30px;
+        flex: 1 1 auto;
+    }
+	.but {
+		width: 120px;
+		height: 60px;
+		background-color: burlywood;
+		border-radius: 30px;
+		font-size: 20px;
+	}
+	
+    .divcenter {
+        margin: auto;
+        width: 50%;
+    }
+
+    .drawing {
+        display: flex;
+        background-color: cornsilk;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        border-radius: 30px;
+        margin: 30px;
+    }
+
+    .topimg {
+        width: 70px;
+        height: 70px;
+    }
+
+    .midimg {
+        width: 100px;
+        height: 100px;
+    }
+
+    .like {
+        width: 35px;
+        height: 35px;
+    }
+
+    .text {
+        font-size: 20px;
+    }
+
+    .head {
+        font-family: Cursive;
+        color: darkgoldenrod;
+        font-size: 55px;
+    }
+	</style>
+
+</head>
+<body style="text-align: center;">
+    <div class="outer">
+        <div class="padtop" id="home">
+            <button class="but">Home</button>
+        </div>
+        <div class="padtop">
+            <h1 class="head">Gallery</h1>
+        </div>
+        <div class="padtop">
+            <img src="/static/coloring/images/color-wheel.png" class="topimg" alt="">
+        </div>
+    </div>
+	<div class="divcenter">
+		<div class="drawing">
+            <div class="padtop text">
+                <p >Go Color brand</p>
+                <p >CS160</p>
+            </div>
+            <div class="padtop">
+                <img src="/static/coloring/images/color-wheel.png" class="midimg" alt="">
+            </div>
+            <div class="padtop">
+                <input type="image" class="like" id="i1" src="/static/coloring/images/like.png">
+                <!-- <img src="/static/coloring/images/like.png" class="like" alt=""> -->
+                <p id="pi1">5555</p>
+            </div>
+        </div>
+
+        <div class="drawing">
+            <div class="padtop text">
+                <p >superman</p>
+                <p >I love super man</p>
+            </div>
+            <div class="padtop">
+                <img src="/static/coloring/images/superman.png" class="midimg" alt="">
+            </div>
+            <div class="padtop">
+                <input type="image" class="like" id="i2" src="/static/coloring/images/like.png">
+                <!-- <img src="/static/coloring/images/like.png" class="like" alt=""> -->
+                <p id="pi2">222</p>
+            </div>
+        </div>
+
+        <div class="drawing">
+            <div class="padtop text">
+                <p >Sun</p>
+                <p >Sunlover</p>
+            </div>
+            <div class="padtop">
+                <img src="/static/coloring/images/sun-color.png" class="midimg" alt="">
+            </div>
+            <div class="padtop">
+                <input type="image" class="like" id="i3" src="/static/coloring/images/like.png">
+                <!-- <img src="/static/coloring/images/like.png" class="like" alt=""> -->
+                <p id="pi3">222</p>
+            </div>
+        </div>
+
+        <div class="drawing">
+            <div class="padtop text">
+                <p >trees</p>
+                <p >treelover</p>
+            </div>
+            <div class="padtop">
+                <img src="/static/coloring/images/trees-color.png" class="midimg" alt="">
+            </div>
+            <div class="padtop">
+                <input type="image" class="like" id="i4" src="/static/coloring/images/like.png">
+                <!-- <img src="/static/coloring/images/like.png" class="like" alt=""> -->
+                <p id="pi4">222</p>
+            </div>
+        </div>
+	</div>
+	
+	<script type="text/javascript">
+		$("#home").click(function(){
+			window.location.href = "/coloring/";
+		})
+
+        $(".like").click(function(){
+            var id = $(this).attr("id");
+            var pid = "#p".concat(id);
+            var val = $(pid).text();
+            $(pid).text(parseInt(val) + 1);
+        })
+
+	</script>
+</body>
+</html>
