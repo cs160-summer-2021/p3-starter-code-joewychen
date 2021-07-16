@@ -34,7 +34,6 @@
 			cursor: pointer;
 		}
 
-
 		.remove-tag {
 			left: 35px;
 			/* top: -20px; */
@@ -43,6 +42,7 @@
 			height: 15px;
 			/* font-size: 35px; */
 		}
+
 		.remove-tag::before {
 			content: "x";	
   			color:black;
@@ -77,24 +77,33 @@
 			font-size: 30px;
 			
 		}
+
 		.eraser {
 			width: 35px;
 			height: 35px;
 			margin-right: 15px;
 		}
+
 		.design {
 			margin: auto;
 			box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;		}
-		.design-choice {
+		
+			.design-choice {
 			padding: 20px;
 			margin: 10px;
 			width: 120px;
 			height: 120px;
 			box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 		}
+
 		.title-text {
 			text-align: center;
 			font-size: 30px;
+		}
+
+		.cancel {
+			border-radius: 50%;
+			cursor: pointer;
 		}
 
 		
@@ -143,7 +152,7 @@
 						// add color to the color palette history
 					  	cp.history.push($(this).css("background-color"));
 					});
-					var removetag = $("<button></button>").addClass("remove-tag");
+					var removetag = $("<button class = 'cancel'></button>").addClass("remove-tag");
 					removetag.click(removeColor($swatch));
 					$swatch.append(removetag);
 					cp.$container.append($swatch);
@@ -194,7 +203,7 @@
 				$swatch.click(function(){
 					  	cp.history.push($(this).css("background-color"));
 				});				
-				var removetag = $("<button>").addClass("remove-tag");
+				var removetag = $("<button class = 'cancel'>").addClass("remove-tag");
 				removetag.click(removeColor($swatch));
 				$swatch.append(removetag);
 				cp.$container.append($swatch);	
